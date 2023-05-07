@@ -1,2 +1,2 @@
-def greeting():
-    print("Welcome to Terraform Workflow!")
+if __name__ == "__main__":
+    print("Hello World!")
