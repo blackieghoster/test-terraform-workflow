@@ -8,5 +8,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+
     - name: Checkout repository
       uses: actions/checkout@v2
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Initialize Terraform
+      run: terraform init
+
+    - name: Plan Terraform changes
+      run: terraform plan
+
+    - name: Apply Terraform changes
+      run: terraform apply -auto-approve
+
+    - name: Run hello_world
+      run: hello_world.py
